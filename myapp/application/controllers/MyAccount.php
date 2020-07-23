@@ -11,9 +11,9 @@ class MyAccount extends CI_Controller {
 
 		if($this->session->userdata('logged_in') !== TRUE){
 			redirect('user');
-    	}
+    		}
 
-    	$this->load->model('User_model');
+    		$this->load->model('User_model');
     	
 	}
 
