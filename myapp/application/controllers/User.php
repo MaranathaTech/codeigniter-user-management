@@ -22,13 +22,13 @@ class User extends CI_Controller {
     	}
 
 		//check user permissions to load admin header
-		if($this->session->userdata('level')==='1'){
+		if($this->session->userdata('level')=== 1){
 			
 			$this->load->view('templates/admin-header');
 
 		}
 		//check user permissions to load standard user
-		else if($this->session->userdata('level')==='3'){
+		else if($this->session->userdata('level')=== 3){
 
 			$this->load->view('templates/user-header');
 
