@@ -63,7 +63,7 @@ class User extends CI_Controller {
         $this->load->config('email');
         $this->load->library('email');
 
-		$id = $this->generateID();
+	$id = $this->generateID();
         
         $from = $this->config->item('smtp_user');
         $to = $this->input->post('user_email');
@@ -82,17 +82,17 @@ class User extends CI_Controller {
         $this->email->message($message);
 
         //write reset link to db
-		$this->Reset_model->storeResetLink($to, $id);
+	$this->Reset_model->storeResetLink($to, $id);
 
         if ($this->email->send()) {
 			
-			echo $this->session->set_flashdata('msg','Your password reset email has been sent. Please check your email for the link to finish the password reset.');
+		echo $this->session->set_flashdata('msg','Your password reset email has been sent. Please check your email for the link to finish the password reset.');
 
-            redirect('user');
+		redirect('user');
 
         } else {
             
-            show_error($this->email->print_debugger());
+		show_error($this->email->print_debugger());
 
         }
 
@@ -143,8 +143,8 @@ class User extends CI_Controller {
 
 		//check to see if user exists in database already
 		$check = $this->User_model->checkForUser($email);
-		//var_dump($check);
-		//exit();
+		
+		
 		if($check->num_rows() > 0){//user exists
 			
 			echo $this->session->set_flashdata('msg','User already exists! Please try to log in or reset your password.');
