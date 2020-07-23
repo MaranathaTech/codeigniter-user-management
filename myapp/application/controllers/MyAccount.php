@@ -21,13 +21,13 @@ class MyAccount extends CI_Controller {
 	public function index(){
 		
 		//check user permissions to load admin header
-		if($this->session->userdata('level')=== 1){
+		if($this->session->userdata('level') == 1){
 			
 			$this->load->view('templates/admin-header');
 
 		}
 		//check user permissions to load standard user
-		else if($this->session->userdata('level')=== 3){
+		else if($this->session->userdata('level') == 3){
 
 			$this->load->view('templates/user-header');
 
@@ -42,7 +42,7 @@ class MyAccount extends CI_Controller {
 		$this->load->view('pages/account');
 		$this->load->view('templates/footer');	
 
-	}
+    }
 
 	//function to process update form submissions
 	public function update(){
