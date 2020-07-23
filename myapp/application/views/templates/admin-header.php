@@ -28,8 +28,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a class="dropdown-item" href="#">Option 4</a>
               </div>
       </li>
-      <li class="nav-item">
-      	<a class="nav-link" href="myaccount">account</a>
+       <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Account <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="themes">    
+                <a class="dropdown-item" href="myaccount">My Account</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="user/logout">Logout</a>
+              </div>
       </li>
       <li class="nav-item">
       	<a class="nav-link" href="#">manage</a>
