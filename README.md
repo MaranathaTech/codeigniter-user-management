@@ -7,31 +7,6 @@ The quickest way to get started is by using the included docker-compose.yml to c
 
 ## Configuration
 
-Create a MYSQL database and generate the tables using:
-```
-CREATE TABLE `users` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `user_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
- `user_org` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
- `user_password` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
- `user_phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
- `user_level` int(3) NOT NULL,
- `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
- `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
- `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=Active | 0=Inactive',
- PRIMARY KEY (`id`),
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-CREATE TABLE `reset_urls` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `user_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
- `reset_id` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
- `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
- PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-```
-
 Edit the $config array in "myapp/application/config/email.php" to enable emails.
 ```
 $config = array(
@@ -72,6 +47,40 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 ```
+
+### Prerequisites
+
+Create a MYSQL database and generate the tables using:
+```
+CREATE TABLE `users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `user_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+ `user_org` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+ `user_password` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+ `user_phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+ `user_level` int(3) NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+ `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+ `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=Active | 0=Inactive',
+ PRIMARY KEY (`id`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE `reset_urls` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `user_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+ `reset_id` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+```
+
+## Built With
+
+* [CodeIgniter](https://codeigniter.com) - Framework
+* [Docker](https://www.docker.com) - Container Management
+* [Bitnami](https://hub.docker.com/r/bitnami/codeigniter/dockerfile) - Docker Image
+
 
 ## Authors
 
